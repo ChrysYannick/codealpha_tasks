@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="order-detail-section">
+
+    <div class="order-header">
+
+        <h1>
+            Commande #{{ order.id }}
+        </h1>
+
+        <span class="status-badge status-{{ order.status }}">
+            {{ order.get_status_display }}
+        </span>
+
+    </div>
+
+    <div class="order-info">
+
+        <p>
+            Date :
+            {{ order.created_at|date:"d/m/Y H:i" }}
+        </p>
+
+        <p>
+            Total :
+            {{ order.total }} FCFA
+        </p>
+
+    </div>
+
+    <div class="order-products-card">
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for item in order.items.all %}
+
+                <tr>
+
+                    <td>
+                        {{ item.product.name }}
+                    </td>
+
+                    <td>
+                        {{ item.price }} FCFA
+                    </td>
+
+                    <td>
+                        {{ item.quantity }}
+                    </td>
+
+                    <td>
+                        {{ item.subtotal }} FCFA
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="order-total-card">
+
+        Total commande :
+
+        <span>
+            {{ order.total }} FCFA
+        </span>
+
+    </div>
+
+</section>
+
+{% endblock %}

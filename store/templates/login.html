@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="auth-card">
+
+        <div class="auth-icon">
+            <i class="bi bi-bag-fill"></i>
+        </div>
+
+        <h2>Connexion</h2>
+
+        <p class="auth-subtitle">
+            Connectez-vous à votre compte
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Email</label>
+
+            <input
+                type="text"
+                name="email"
+                placeholder="votre@email.com"
+                required>
+
+            <label>Mot de passe</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Votre mot de passe"
+                required>
+
+            <button type="submit">
+                Se connecter
+            </button>
+
+        </form>
+
+        <div class="auth-footer">
+
+            Pas encore de compte ?
+
+            <a href="{% url 'register' %}">
+                S'inscrire
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

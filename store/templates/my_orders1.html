@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="orders-section">
+
+    <h1 class="orders-title">
+        Mes commandes
+    </h1>
+
+    <div class="orders-card">
+
+        <table class="orders-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Commande</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for order in orders %}
+
+                <tr>
+
+                    <td class="order-id">
+                        #{{ order.id }}
+                    </td>
+
+                    <td>
+                        {{ order.created_at|date:"d/m/Y" }}
+                    </td>
+
+                    <td>
+                        {{ order.total }} FCFA
+                    </td>
+
+                    <td>
+
+                        <span class="status-badge status-{{ order.status }}">
+                            {{ order.get_status_display }}
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <a href="{% url 'order_detail' order.id %}"
+                           class="view-btn">
+
+                            Voir
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="5" class="empty-orders">
+
+                        Aucune commande effectuée.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

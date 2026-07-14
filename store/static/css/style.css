@@ -1,0 +1,1531 @@
+body{
+    background:#f8fafc;
+    padding-top:110px;
+
+}
+
+/* NAVBAR */
+
+.navbar-custom{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px 0;
+    z-index: 1000;
+
+}
+
+.logo-icon{
+    color:#2563eb;
+    font-size:28px;
+}
+
+.navbar-brand{
+    font-size:32px;
+}
+/* ICONES */
+
+.nav-icons{
+    display:flex;
+    gap:25px;
+}
+
+.nav-icons a{
+    position:relative;
+    color:#1e293b;
+    text-decoration:none;
+    font-size:26px;
+}
+
+.cart-badge{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    background:#2563eb;
+    color:white;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    font-size:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* MENU AU CENTRE */
+
+.main-menu{
+    display:flex;
+    align-items:center;
+    gap:35px;
+}
+
+.main-menu a{
+    position:relative;
+    text-decoration:none;
+    color:#1e293b;
+    font-weight:600;
+    padding:5px 0;
+}
+
+.main-menu a::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-5px;
+    width:0;
+    height:3px;
+    background:#2563eb;
+    transform:translateX(-50%);
+    transition:0.5s;
+}
+
+.main-menu a:hover::after{
+    width:100%;
+}
+
+.main-menu a:hover{
+    color:#2563eb;
+}
+
+/* hero */
+/* HERO */
+
+.hero{
+    width:100%;
+    margin:30px 0;
+}
+
+.hero-carousel{
+    width:95%;
+    margin:auto;
+}
+
+.hero-image{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+.carousel-item{
+    position:relative;
+}
+
+.carousel-item::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    border-radius:25px;
+}
+
+.carousel-caption-custom{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:2;
+    width:80%;
+    color:white;
+}
+
+.carousel-caption-custom h1{
+    font-size:4rem;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.carousel-caption-custom p{
+    font-size:1.3rem;
+    margin-bottom:30px;
+}
+
+.carousel-caption-custom .btn{
+    padding:15px 35px;
+    border-radius:12px;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    z-index:3;
+}
+
+/* style pour la section category  et autres */
+/* SECTION CATEGORIES */
+
+.categories-section{
+    width:95%;
+    margin:60px auto;
+}
+
+/* TITRE */
+
+.section-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.section-top h2{
+    font-size:28px;
+    font-weight:700;
+}
+
+.section-top a{
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
+}
+
+/* CONTENEUR DES CARTES */
+
+.categories-grid{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:nowrap;
+}
+
+/* CARTE */
+
+.category-card{
+    flex:1;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:25px 15px;
+    text-align:center;
+    transition:all .3s ease;
+    cursor:pointer;
+}
+
+.category-card:hover{
+    transform:translateY(-5px);
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+/* IMAGE */
+
+.category-card img{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+/* NOM */
+
+.category-card h5{
+    margin:0;
+    font-size:15px;
+    font-weight:600;
+    color:#111827;
+}
+
+
+/* style pour la section produit et autres */
+/* PRODUITS */
+
+.products-section{
+    width:95%;
+    margin:70px auto;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(4,1fr);
+    gap:25px;
+}
+
+.product-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+    border:1px solid #eef2f7;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,.12);
+}
+
+.product-image{
+    height:250px;
+    overflow:hidden;
+    border-radius:18px 18px 0 0;
+}
+
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.4s ease;
+}
+
+.product-card:hover .product-image img{
+    transform:scale(1.12);
+}
+
+.product-content{
+    padding:15px;
+}
+
+.product-content h5{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+
+.product-content p{
+    color:#64748b;
+    font-size:14px;
+    min-height:40px;
+}
+
+.product-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:15px;
+}
+
+.price{
+    color:#2563eb;
+    font-size:18px;
+    font-weight:700;
+}
+
+.cart-btn{
+    width:40px;
+    height:40px;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+}
+/* PAGE DETAIL PRODUIT */
+/*  la navbar au dessus de la page detail */
+.breadcrumb-custom{
+    width:95%;
+    margin:30px auto;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+}
+
+.breadcrumb-custom a{
+    text-decoration:none;
+    color:#64748b;
+    transition:.3s;
+}
+
+.breadcrumb-custom a:hover{
+    color:#2563eb;
+}
+
+.breadcrumb-custom .active{
+    color:#0f172a;
+    font-weight:600;
+}
+.product-detail-container{
+    width:95%;
+    margin:40px auto;
+}
+
+.product-detail-grid{
+    display:grid;
+    grid-template-columns:
+    1fr 1fr;
+    gap:50px;
+    margin-bottom:40px;
+}
+
+/* IMAGE */
+
+.product-image-card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    border:1px solid #eef2f7;
+}
+
+.product-image-card img{
+    width:100%;
+    height:500px;
+    object-fit:contain;
+}
+
+/* INFOS */
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h1{
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.product-info h2{
+    color:#2563eb;
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.product-short-description{
+    color:#64748b;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+/* STOCK */
+
+.stock-available{
+    color:#16a34a;
+    font-weight:600;
+}
+
+.stock-unavailable{
+    color:red;
+    font-weight:600;
+}
+
+.stock-info p{
+    margin-top:10px;
+    color:#64748b;
+}
+
+/* QUANTITE */
+
+.quantity-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:25px 0;
+}
+
+.quantity-box button{
+    width:40px;
+    height:40px;
+    border:none;
+    background:#f1f5f9;
+    border-radius:8px;
+}
+
+.quantity-box input{
+    width:60px;
+    text-align:center;
+    height:40px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+/* BOUTON */
+
+.add-cart-btn{
+    width:250px;
+    height:55px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:10px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+/* META */
+
+.product-meta{
+    color:#475569;
+}
+
+/* DESCRIPTION */
+
+.description-card{
+
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    border:1px solid #eef2f7;
+}
+
+.description-card h3{
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.description-card p{
+    line-height:1.9;
+}
+
+
+/* ======================================= Page Panier ======================================== */
+
+/* PAGE PANIER */
+
+
+.cart-section{
+    padding:50px 0;
+    margin-bottom:50px;
+}
+
+.cart-title{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:30px;
+}
+
+/* TABLEAU */
+
+.cart-card{
+    background:#fff;
+    border-radius:16px;
+    padding:20px;
+    border:1px solid #e5e7eb;
+}
+
+.cart-card table{
+    margin-bottom:0;
+    width: 100%;
+    padding:15px 20px;
+    table-layout:fixed;
+}
+
+.cart-card th{
+    color:#64748b;
+    font-weight:600;
+    border:none;
+}
+
+.cart-card td{
+    vertical-align:middle;
+}
+
+/* PRODUIT */
+.product-cell img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+}
+
+.product-cell span{
+    font-size:16px;
+    font-weight:bold;
+}
+
+
+
+
+.product-info-cart{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.product-info-cart img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+}
+
+/* QUANTITE */
+
+.qty-control{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.qty-control a{
+    width:35px;
+    height:35px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    text-decoration:none;
+    color:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* POUBELLE */
+
+.delete-btn{
+    width:40px;
+    height:40px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:#64748b;
+}
+
+/* RESUME */
+
+.summary-card{
+    background:#fff;
+    border-radius:16px;
+    padding:25px;
+    margin-bottom:50px;
+    border:1px solid #e5e7eb;
+}
+/* TOTAL */
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:15px 0;
+}
+
+.summary-total{
+    display:flex;
+    justify-content:space-between;
+    margin:25px 0;
+    font-size:22px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+/* BOUTON COMMANDE */
+
+.checkout-btn{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-weight:600;
+}
+
+/* CONTINUER */
+
+.continue-shopping{
+    display:inline-block;
+    margin-top:20px;
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/*   ===================== Pourquoi Nous choisir style  =======================*/
+.features-section{
+    width:95%;
+    margin:80px auto;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.feature-card{
+    background:white;
+    border-radius:16px;
+    padding:30px;
+    text-align:center;
+}
+
+.feature-card i{
+    font-size:40px;
+    color:#2563eb;
+}
+
+
+
+
+/* ==========================
+        FOOTER
+========================== */
+
+.footer{
+
+    width:95%;
+    margin:80px auto 30px;
+    background:linear-gradient(
+        135deg,
+        #081b3a,
+        #0d254d
+    );
+
+    border-radius:20px;
+    padding:50px;
+    color:white;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:
+        1.3fr 1fr 1fr 1.2fr;
+    gap:50px;
+}
+
+/* LOGO */
+
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.footer-logo i{
+    font-size:32px;
+    color:#2563eb;
+}
+
+.footer-logo h3{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+}
+
+.footer-col p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* TITRES */
+
+.footer-col h4{
+    margin-bottom:25px;
+    font-size:18px;
+    font-weight:600;
+}
+
+/* LISTES */
+.footer-col ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footer-col ul li{
+    margin-bottom:15px;
+    color:#cbd5e1;
+}
+
+.footer-col ul li a{
+    text-decoration:none;
+    color:#cbd5e1;
+    transition:.3s;
+}
+
+.footer-col ul li a:hover{
+    color:white;
+}
+
+/* BAS FOOTER */
+
+.footer-bottom{
+    margin-top:40px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.1);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer-bottom p{
+    margin:0;
+    color:#cbd5e1;
+}
+
+/* RESEAUX */
+.social-icons{
+    display:flex;
+    gap:12px;
+}
+
+.social-icons a{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    background:#2563eb;
+}
+
+ /* ==========================
+        Style ccs pour l' AUTH
+========================== */
+.auth-section{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:50px 0 80px;
+}
+
+.auth-card{
+    width:480px;
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    border:1px solid #eef2f7;
+    box-shadow:0 10px 30px rgba(0,0,0,.04);
+}
+
+.auth-icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 20px;
+    background:#2563eb;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.auth-icon i{
+    color:white;
+    font-size:32px;
+}
+.auth-card h2{
+    text-align:center;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.auth-subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:30px;
+}
+
+.auth-card label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.auth-card input{
+    width:100%;
+    height:50px;
+    border:1px solid #dbe2ea;
+    border-radius:10px;
+    padding:0 15px;
+    margin-bottom:20px;
+}
+
+.auth-card input:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+.auth-card button{
+    width:100%;
+    height:52px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-weight:600;
+    margin-top:10px;
+}
+
+.auth-footer{
+    text-align:center;
+    margin-top:25px;
+}
+
+.auth-footer a{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:600;
+}
+/* =======================================
+            MES COMMANDES
+======================================= */
+
+.orders-section{
+    width:95%;
+    margin:50px auto 80px;
+}
+
+.orders-title{
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:40px;
+}
+
+.orders-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid #e5e7eb;
+}
+
+.orders-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.orders-table thead{
+    background:#f8fafc;
+}
+
+.orders-table th{
+    padding:20px;
+    text-align:left;
+    color:#64748b;
+    font-weight:600;
+}
+
+.orders-table td{
+    padding:25px 20px;
+    border-top:1px solid #eef2f7;
+}
+
+.order-id{
+    font-weight:700;
+}
+
+.status-badge{
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.status-pending{
+    background:#FEF3C7;
+    color:#D97706;
+}
+
+.status-processing{
+    background:#DBEAFE;
+    color:#2563EB;
+}
+
+.status-completed{
+    background:#DCFCE7;
+    color:#16A34A;
+}
+
+.view-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:90px;
+    height:42px;
+    border:2px solid #2563eb;
+    border-radius:10px;
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
+}
+
+.view-btn:hover{
+    background:#2563eb;
+    color:white;
+}
+
+.empty-orders{
+    text-align:center;
+    padding:40px;
+}
+
+/* =====================================
+        DETAIL COMMANDE
+===================================== */
+
+.order-detail-section{
+    width:95%;
+    margin:50px auto 80px;
+}
+
+.order-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.order-header h1{
+    font-size:40px;
+    font-weight:700;
+}
+
+.order-info{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    margin-bottom:25px;
+    border:1px solid #e5e7eb;
+}
+
+.order-products-card{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    border:1px solid #e5e7eb;
+}
+
+.order-products-card table{
+    margin-bottom:0;
+}
+
+.order-total-card{
+    margin-top:25px;
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    border:1px solid #e5e7eb;
+    display:flex;
+    justify-content:space-between;
+    font-size:24px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+ /* =====================================
+            PAGE PRODUITS
+===================================== */
+
+.products-page{
+    width:95%;
+    margin:40px auto 80px;
+}
+
+.page-header{
+    margin-bottom:30px;
+}
+
+.page-header h1{
+    font-size:42px;
+    font-weight:700;
+}
+
+.filters-bar{
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    border:1px solid #e5e7eb;
+    margin-bottom:35px;
+}
+
+.filters-bar form{
+    display:flex;
+    gap:15px;
+}
+
+.filters-bar input{
+    flex:1;
+    height:50px;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:0 15px;
+}
+
+.filters-bar select{
+    width:250px;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:0 15px;
+}
+
+.filters-bar button{
+    width:150px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-weight:600;
+}
+
+/* =======================================
+            PAGE CATEGORIES
+======================================= */
+
+.categories-page{
+    width:95%;
+    margin:50px auto 80px;
+}
+
+.page-title{
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:35px;
+}
+
+.categories-page .categories-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(4,1fr);
+    gap:25px;
+}
+
+.categories-page .category-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    text-decoration:none;
+    color:#111827;
+    transition:.3s;
+}
+
+.categories-page .category-card:hover{
+    transform:translateY(-5px);
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.categories-page .category-card img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.categories-page .category-card h5{
+    margin:0;
+    font-size:18px;
+    font-weight:600;
+}
+
+/* =====================================
+            PAGINATION
+===================================== */
+
+.pagination-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-top:50px;
+}
+
+.page-btn{
+    width:45px;
+    height:45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    color:#1e293b;
+    background:white;
+    transition:.3s;
+}
+
+.page-btn:hover{
+    background:#2563eb;
+    color:white;
+}
+
+.active-page{
+    background:#2563eb;
+    color:white;
+    border:none;
+}
+
+/* ======================================
+            USER MENU
+====================================== */
+ .user-menu{
+    position:relative;
+}
+
+.user-avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.user-dropdown{
+    position:absolute;
+    top:55px;
+    right:0;
+    width:220px;
+    background:white;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    display:none;
+    overflow:hidden;
+    z-index:1000;
+}
+
+
+.user-dropdown a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 18px;
+    text-decoration:none;
+    color:#1e293b;
+}
+
+.user-dropdown a:hover{
+    background:#f8fafc;
+}
+
+.user-dropdown{
+    display:none;
+}
+
+.user-dropdown.show{
+    display:block;
+}
+/* =====================================
+            PROFIL UTILISATEUR
+===================================== */
+
+.profile-section{
+    width:95%;
+    margin:50px auto 80px;
+    display:flex;
+    justify-content:center;
+}
+
+.profile-card{
+    width:700px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    border:1px solid #e5e7eb;
+}
+
+.profile-icon{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.profile-icon i{
+    font-size:80px;
+    color:#2563eb;
+}
+
+.profile-card h2{
+    text-align:center;
+    margin-bottom:35px;
+    font-weight:700;
+}
+
+.profile-info{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:15px;
+    background:#f8fafc;
+    border-radius:10px;
+}
+
+.profile-actions{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+}
+
+.profile-btn{
+    flex:1;
+    text-align:center;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:15px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.logout-btn{
+    flex:1;
+    text-align:center;
+    background:#ef4444;
+    color:white;
+    text-decoration:none;
+    padding:15px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+/* =====================================================================
+
+                RESPONSIVE DESIGN
+
+================================================================*/
+/* ================================================= */
+/* ================= TABLETTE ====================== */
+/* ================================================= */
+
+@media (max-width: 992px){
+
+    /* Produits */
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* ================================================= */
+/* ================= MOBILE & TABLETTE ============= */
+/* ================================================= */
+
+@media (max-width: 768px){
+
+    /* BODY */
+
+    body{
+        padding-top:140px;
+    }
+
+    /* NAVBAR */
+
+    .navbar-custom .container{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .main-menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .nav-icons{
+        margin-top:10px;
+    }
+
+    /* HERO */
+
+    .hero-image{
+        height:350px;
+    }
+
+    .carousel-caption-custom h1{
+        font-size:2rem;
+    }
+
+    .carousel-caption-custom p{
+        font-size:1rem;
+    }
+
+    /* CATEGORIES */
+
+    .categories-grid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+    }
+
+    /* DETAIL PRODUIT */
+
+    .product-detail-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .product-image-card img{
+        height:350px;
+    }
+
+    .product-info h1{
+        font-size:30px;
+    }
+
+    .product-info h2{
+        font-size:28px;
+    }
+
+    /* PANIER */
+
+    .cart-card{
+        overflow-x:auto;
+    }
+
+    .cart-table{
+        min-width:700px;
+    }
+
+    /* FOOTER */
+
+    .footer-container{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:30px;
+        text-align:center;
+    }
+
+}
+
+/* Bouton hamburger */
+
+.navbar-toggler{
+    border:none;
+    font-size:30px;
+    color:#2563eb;
+}
+
+.navbar-toggler:focus{
+    box-shadow:none;
+}
+
+/* ================================================= */
+/* ================= PETIT MOBILE ================== */
+/* ================================================= */
+
+@media (max-width: 991px){
+
+    .navbar-collapse{
+
+        margin-top:20px;
+
+    }
+
+    .main-menu{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:15px;
+
+        margin-bottom:20px;
+
+    }
+
+    .nav-icons{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media (max-width: 576px){
+
+    /* PRODUITS */
+
+    .products-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* HERO */
+
+    .hero-image{
+        height:280px;
+    }
+
+    .carousel-caption-custom h1{
+        font-size:1.6rem;
+    }
+
+    .carousel-caption-custom p{
+        font-size:0.9rem;
+    }
+
+    /* TITRES */
+
+    .section-top h2{
+        font-size:22px;
+    }
+
+    .cart-title{
+        font-size:26px;
+    }
+
+    .orders-title{
+        font-size:26px;
+    }
+
+    /* BOUTONS */
+
+    .add-cart-btn{
+        width:100%;
+    }
+
+    .checkout-btn{
+        width:100%;
+    }
+
+    /* DETAILS PRODUIT */
+
+    .quantity-box{
+        flex-wrap:wrap;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .category-card,
+    .feature-card{
+
+        padding:15px;
+
+    }
+
+    .category-card i,
+    .feature-card i{
+
+        font-size:28px;
+
+    }
+
+    .category-card h5,
+    .feature-card h5{
+
+        font-size:14px;
+
+    }
+
+}
+
+/* media  pour la section pourquoi nous choisit */
+@media (max-width:576px){
+
+    .features-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:15px;
+
+    }
+
+}

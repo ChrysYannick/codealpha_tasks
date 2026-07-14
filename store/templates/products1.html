@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="products-page">
+
+    <div class="page-header">
+
+        <h1>
+            Tous nos produits
+        </h1>
+
+    </div>
+
+    <!-- FILTRES -->
+
+    <div class="filters-bar">
+
+        <form method="GET">
+
+            <input
+                type="text"
+                name="q"
+                placeholder="Rechercher un produit">
+
+            <select name="category">
+
+                <option value="">
+                    Toutes les catégories
+                </option>
+
+                {% for category in categories %}
+
+                <option
+                    value="{{ category.id }}"
+                    {% if selected_category == category.id|stringformat:"s" %}
+                        selected
+                    {% endif %}
+                >
+
+                    {{ category.name }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <button type="submit">
+
+                Rechercher
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- PRODUITS -->
+
+    <div class="products-grid">
+
+        {% for product in page_obj %}
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="{{ product.image.url }}"
+                    alt="{{ product.name }}">
+
+            </div>
+
+            <div class="product-content">
+
+                <h5>
+                    {{ product.name }}
+                </h5>
+
+                <p>
+                    {{ product.description|truncatechars:60 }}
+                </p>
+
+                <div class="product-footer">
+
+                    <span class="price">
+
+                        {{ product.price }} FCFA
+
+                    </span>
+
+                    <a href="{% url 'product_detail' product.id %}"
+                       class="cart-btn">
+
+                        <i class="bi bi-eye"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="no-product">
+
+            Aucun produit trouvé.
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+    <div class="pagination-container">
+
+    {% if page_obj.has_previous %}
+
+        <a href="?page={{ page_obj.previous_page_number }}&q={{ query }}&category={{ selected_category }}"
+           class="page-btn">
+
+            ←
+
+        </a>
+
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+
+        {% if page_obj.number == num %}
+
+            <span class="page-btn active-page">
+
+                {{ num }}
+
+            </span>
+
+        {% else %}
+            <!-- pour la conservation des filtres pendant la pagination -->
+            <a href="?page={{ num }}&q={{ query }}&category={{ selected_category }}"
+               class="page-btn">
+                {{ num }}
+
+            </a>
+
+        {% endif %}
+
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+
+        <a href="?page={{ page_obj.next_page_number }}&q={{ query }}&category={{ selected_category }}"
+           class="page-btn">
+
+            →
+
+        </a>
+
+    {% endif %}
+
+</div>
+
+</section>
+
+{% endblock %}

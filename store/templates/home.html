@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Accueil
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+
+    <div id="heroCarousel"
+         class="carousel slide hero-carousel"
+         data-bs-ride="carousel">
+
+        <!-- Indicateurs -->
+
+        <div class="carousel-indicators">
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="0"
+                    class="active">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="1">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="2">
+            </button>
+        </div>
+
+        <!-- Slides -->
+
+        <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+
+            <div class="carousel-item active">
+
+                <img src="{% static 'images/headphone.jpg' %}"
+                     class="hero-image"
+                     alt="Casque Audio">
+
+                <div class="carousel-caption-custom">
+
+                    <h1>Bienvenue sur ShopEasy</h1>
+
+                    <p>
+                        Découvrez des produits de qualité
+                        aux meilleurs prix.
+                    </p>
+
+                    <a href="{% url 'products' %}"
+                       class="btn btn-primary btn-lg">
+                        Acheter maintenant
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Slide 2 -->
+
+            <div class="carousel-item">
+
+                <img src="{% static 'images/montre.jpg' %}"
+                     class="hero-image"
+                     alt="Montre">
+
+                <div class="carousel-caption-custom">
+
+                    <h1>Accessoires Premium</h1>
+
+                    <p>
+                        Casques, montres et gadgets modernes.
+                    </p>
+
+                    <a href="{% url 'products' %}"
+                       class="btn btn-primary btn-lg">
+                        Découvrir
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Slide 3 -->
+
+            <div class="carousel-item">
+
+                <img src="{% static 'images/smartphone.jpg' %}"
+                     class="hero-image"
+                     alt="Smartphone">
+
+                <div class="carousel-caption-custom">
+
+                    <h1>Technologie au Quotidien</h1>
+
+                    <p>
+                        Les meilleures innovations pour vous.
+                    </p>
+
+                    <a href="{% url 'products' %}"
+                       class="btn btn-primary btn-lg">
+                        Voir les produits
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+ <!-- Section cqtegory  -->
+
+ <section class="categories-section">
+
+    <div class="section-top">
+
+        <h2>Catégories</h2>
+
+        <a href="{% url 'categories' %}">
+            Voir toutes les categories
+            <i class="bi bi-arrow-right"></i>
+        </a>
+
+    </div>
+
+    <div class="categories-grid">
+
+        {% for category in categories %}
+
+        <div class="category-card">
+
+            <img
+                src="{{ category.image.url }}"
+                alt="{{ category.name }}">
+
+            <h5>{{ category.name }}</h5>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<section class="products-section">
+
+    <div class="section-top">
+
+        <h2>Nos produits</h2>
+
+       <a href="{% url 'products' %}">
+            Voir tous les produits →
+        </a>
+
+    </div>
+
+    <div class="products-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <a href="{% url 'product_detail' product.id %}">
+                    <img
+                        src="{{ product.image.url }}"
+                        alt="{{ product.name }}">
+                </a>
+
+            </div>
+
+            <div class="product-content">
+
+                <h5>{{ product.name }}</h5>
+
+                <p>
+                    {{ product.description|truncatechars:50 }}
+                </p>
+
+                <div class="product-footer">
+
+                    <span class="price">
+
+                        {{ product.price }} FCFA
+
+                    </span>
+
+                  <a href="{% url 'add_to_cart' product.id %}" class="cart-btn">
+                        <i class="bi bi-cart-plus"></i>
+                  </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+<section class="features-section">
+    <div class="section-top">
+        <h2>Pourquoi nous choisir ?</h2>
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+            <i class="bi bi-truck"></i>
+            <h5>Livraison rapide</h5>
+            <p>Partout en Côte d'Ivoire</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="bi bi-shield-check"></i>
+            <h5>Paiement sécurisé</h5>
+            <p>Transactions protégées</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="bi bi-arrow-repeat"></i>
+            <h5>Retour facile</h5>
+            <p>Retour sous 7 jours</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="bi bi-headset"></i>
+            <h5>Support 24/7</h5>
+            <p>Assistance rapide</p>
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

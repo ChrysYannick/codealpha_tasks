@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="cart-section">
+
+    <h2 class="cart-title">
+        Mon panier
+    </h2>
+
+    <div class="cart-card">
+
+        <!-- Liste produits -->
+
+        <div class="cart-items">
+
+            <table class="cart-table">
+
+                <thead>
+
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for item in cart.items.all %}
+
+                    <tr>
+
+                        <td>
+
+                            <div class="product-cell">
+
+                                <img
+                                    src="{{ item.product.image.url }}"
+                                    alt="{{ item.product.name }}">
+
+                                <span>
+                                    {{ item.product.name }}
+                                </span>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            {{ item.product.price }} FCFA
+                        </td>
+
+                        <td>
+
+                            <div class="qty-control">
+
+                                <a href="{% url 'decrease_quantity' item.id %}">
+                                    -
+                                </a>
+
+                                <span>
+                                    {{ item.quantity }}
+                                </span>
+
+                                <a href="{% url 'increase_quantity' item.id %}">
+                                    +
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            {{ item.subtotal }} FCFA
+                        </td>
+
+                        <td>
+
+                            <a href="{% url 'remove_from_cart' item.id %}"
+                               class="delete-btn">
+
+                                <i class="bi bi-trash"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+                  {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+     <!-- Résumé -->
+
+    <div class="cart-summary">
+
+            <div class="summary-card">
+
+                <div class="summary-row">
+
+                    <span>Sous-total</span>
+
+                    <span>
+                        {{ total }} FCFA
+                    </span>
+
+                </div>
+
+
+
+                <hr>
+
+                <div class="summary-total">
+
+                    <span>Total</span>
+
+                    <span>
+                        {{ total }} FCFA
+                    </span>
+
+                </div>
+
+              <a href="{% url 'checkout' %}">
+                 <button class="checkout-btn">
+
+                    Passer la commande
+
+                </button>
+              </a>
+
+            </div>
+             <a href="{% url 'home' %}"
+               class="continue-shopping">
+
+                ← Continuer mes achats
+
+            </a>
+
+        </div>
+
+</section>
+
+{% endblock %}

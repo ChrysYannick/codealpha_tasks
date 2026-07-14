@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<nav class="breadcrumb-custom">
+
+    <a href="{% url 'home' %}">
+        Accueil
+    </a>
+
+    <span>
+        <i class="bi bi-chevron-right"></i>
+    </span>
+
+    <a href="{% url 'category_products' product.category.id %}">
+        {{ product.category.name }}
+    </a>
+
+    <span>
+        <i class="bi bi-chevron-right"></i>
+    </span>
+
+    <span class="active">
+        {{ product.name }}
+    </span>
+
+</nav>
+
+<section class="product-detail-container">
+
+    <div class="product-detail-grid">
+
+        <!-- IMAGE -->
+
+        <div class="product-image-card">
+
+            <img src="{{ product.image.url }}"
+                 alt="{{ product.name }}">
+
+        </div>
+
+        <!-- INFOS -->
+
+        <div class="product-info">
+
+            <h1>{{ product.name }}</h1>
+
+            <h2>{{ product.price }} FCFA</h2>
+
+            <p class="product-short-description">
+                {{ product.description|truncatechars:150 }}
+            </p>
+
+            <div class="stock-info">
+
+                {% if product.stock > 0 %}
+                    <span class="stock-available">
+                        ● En stock
+                    </span>
+                {% else %}
+                    <span class="stock-unavailable">
+                        ● Rupture de stock
+                    </span>
+                {% endif %}
+
+                <p>
+                    {{ product.stock }}
+                    article(s) disponible(s)
+                </p>
+
+            </div>
+
+            <div class="quantity-box">
+
+                <button>-</button>
+
+                <input type="number"
+                       value="1"
+                       min="1">
+
+                <button>+</button>
+
+            </div>
+
+              <!-- Au clic sur le bouton   les elements vont etre  ajouter au panier-->
+           <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                {% if product.stock > 0 %}
+                    <button type="submit" class="add-cart-btn">
+                        Ajouter au panier
+                    </button>
+
+                    {% else %}
+
+                    <button class="add-cart-btn" disabled>
+                        Produit indisponible
+                    </button>
+
+                    {% endif %}
+            </form>
+            <div class="product-meta">
+
+                <p>
+                    <strong>Catégorie :</strong>
+                    {{ product.category.name }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DESCRIPTION -->
+
+    <div class="description-card">
+
+        <h3>Description</h3>
+
+        <p>
+            {{ product.description }}
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
