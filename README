@@ -1,0 +1,23 @@
+# ShopEasy
+
+Application e-commerce développée avec Django.
+
+## Fonctionnalités
+- Panier
+- Page de détails du produit
+- Traitement de la commande
+- Inscription/connexion utilisateur
+
+
+## Technologies
+
+- Django
+- SQLite
+- HTML
+- CSS
+- JavaScript
+- SweetAlert2
+
+## Auteur
+
+ASSOUAN Chrys Yannick
